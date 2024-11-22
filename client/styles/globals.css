@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --swiper-pagination-color: theme("colors.white");
+    --swiper-theme-color: theme("colors.zinc.900");
+  }
+
+  @keyframes animateGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+@layer components {
+  .cs-container {
+    max-width: 80rem;
+    @apply max-sm:px-6 xl:px-0 mx-auto;
+  }
+
+  .background-gradient-animate {
+    background-size: 300% 300%;
+    background: linear-gradient(
+      60deg,
+      #f79533,
+      #f37055,
+      #ef4e7b,
+      #a166ab,
+      #5073b8,
+      #1098ad,
+      #07b39b,
+      #6fba82
+    );
+    animation: animateGradient 3s ease infinite;
+    background-size: 300% 300%;
+  }
+
+  .border-gradient-animate {
+    --borderWidth: 1.5px;
+    background: #ffff;
+    position: relative;
+  }
+
+  .border-gradient-animate:after {
+    content: "";
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    /* background: linear-gradient(60deg, #ec4899, #ef4444, #6366f1); */
+    background: linear-gradient(
+      60deg,
+      #f79533,
+      #f37055,
+      #ef4e7b,
+      #a166ab,
+      #5073b8,
+      #1098ad,
+      #07b39b,
+      #6fba82
+    );
+    border-radius: 27px;
+    /* border-radius: calc(2 * var(--borderWidth)); */
+    z-index: -1;
+    animation: animateGradient 3s ease infinite;
+    background-size: 300% 300%;
+  }
+
+  .single-product-description p {
+    @apply mb-1;
+  }
+
+  .single-product-description ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+    @apply mb-1;
+  }
+  .single-product-description ol {
+    list-style-type: decimal;
+    margin-left: 2rem;
+    @apply mb-1;
+  }
+}
+
+#mini-product-slider .swiper-slide-thumb-active img {
+  @apply ring ring-offset-1 ring-zinc-600;
+}
